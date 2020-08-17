@@ -1,0 +1,25 @@
+<input type="number" placeholder="Enter numbar" [(ngModel)]="inputMatrixNumbar" >
+<button (click)="submit()">submit</button>
+{{inputMatrixNumbar}}
+
+<span>Step Count : {{stepCount}}</span>
+<table class="table">
+    <tbody>
+        <tr *ngFor="let row of metrixObj; let i=index;">
+            <td *ngFor="let col of row; let j=index;">
+                <span *ngIf="col">
+                    {{col}}
+                </span>
+                <span *ngIf="!col">
+                    -
+                </span>
+            </td>
+        </tr>
+    </tbody>
+    
+</table>
+
+<!-- <button (keyup.arrowright)="handleKey($event)">Right</button>
+<button (keyup.arrowup)="handleKey($event)">Up</button>
+<button (keyup.arrowdown)="handleKey($event)">Down</button>
+<button (keyup.arrowleft)="handleKey($event)">Left</button> -->
