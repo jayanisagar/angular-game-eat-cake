@@ -31,15 +31,15 @@ export class GameComponent implements OnInit {
 
     this.currentPlayerPosition.x = (Math.round(this.inputMatrixNumbar / 2) - 1);
     this.currentPlayerPosition.y = (Math.round(this.inputMatrixNumbar / 2) - 1);
-    this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "p";
+    this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "player.jpg";
 
     let arr: any[] = this.getRandomNumber();
     let arr1: any[] = this.getRandomNumber();
     for (let i = 0; i < arr.length; i++) {
       if (this.currentPlayerPosition.x == arr[i] && this.currentPlayerPosition.y == arr1[i]) {
-        this.metrixObj[arr[i] + 1][arr1[i]] = "e";
+        this.metrixObj[arr[i] + 1][arr1[i]] = "cake.jpg";
       } else {
-        this.metrixObj[arr[i]][arr1[i]] = "e";
+        this.metrixObj[arr[i]][arr1[i]] = "cake.jpg";
       }
     }
   }
@@ -56,32 +56,32 @@ export class GameComponent implements OnInit {
   @HostListener('keydown', ['$event']) onKeyUp(e) {
 
     if(this.metrixObj.length) {
-      this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "-";
+      this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "";
     }
 
     switch (e.keyCode) {
       case 38: // up
         if(this.currentPlayerPosition.x > 0)
           this.currentPlayerPosition.x--;
-        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "p";
+        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "player.jpg";
         this.stepCount++;
         break;
       case 37: // left
         if(this.currentPlayerPosition.y > 0)
           this.currentPlayerPosition.y--;
-        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "p";
+        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "player.jpg";
         this.stepCount++;
         break;
       case 40: // down
         if(this.currentPlayerPosition.x < (this.inputMatrixNumbar - 1))
           this.currentPlayerPosition.x++;
-        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "p";
+        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "player.jpg";
         this.stepCount++;
         break;
       case 39: // right
         if(this.currentPlayerPosition.y < (this.inputMatrixNumbar - 1))
           this.currentPlayerPosition.y++;
-        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "p";
+        this.metrixObj[this.currentPlayerPosition.x][this.currentPlayerPosition.y] = "player.jpg";
         this.stepCount++;
         break;
     }
