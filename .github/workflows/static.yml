@@ -28,9 +28,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,10 +46,10 @@ jobs:
       #   id: deployment
       #   uses: actions/deploy-pages@v4
 
-      - name: Setup Node.js $
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: $
+          node-version: '18.x'
           cache: 'npm'
           cache-dependency-path: package-lock.json
 
